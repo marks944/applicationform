@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MK LOANS</title>
+    <meta name="description" content="quickiest loan approval">
+    <meta name="keywords"
+        content="i need a loan, where to get a loan, loan without collateral, zero percent interest loan">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="main">
+            <h1>APPLICATION FORM</h1>
+            <!-- Form to submit to post.php with enctype="multipart/form-data" to handle file uploads -->
+            <form id="loanForm" class="form">
+                <h2><strong>Loan Information</strong></h2>
+                <section class="section">
+                    <fieldset class="fieldset">
+                        <label for="amount">Amount($):</label>
+                        <input type="number" name="amount" id="amount" min="0" required>
+                    </fieldset>
+                </section>
+                <section class="section">
+                    <fieldset class="fieldset">
+                        <label for="months">Duration:</label>
+                        <select name="months" id="months" class="select" required>
+                            <option class="tabs" value="" selected>-------</option>
+                            <option class="tabs" value="6 months">6 Months</option>
+                            <option class="tabs" value="12 months">12 Months</option>
+                            <option class="tabs" value="36 months">36 Months</option>
+                        </select>
+                    </fieldset>
+                </section>
+
+                <h2><strong>Personal Information</strong></h2>
+                <section class="section">
+                    <fieldset class="fieldset">
+                        <label for="firstName">First Name:</label>
+                        <input type="text" name="firstName" id="firstName" required>
+                    </fieldset>
+                    <fieldset class="fieldset">
+                        <label for="lastName">Last Name:</label>
+                        <input type="text" name="lastName" id="lastName" required>
+                    </fieldset>
+                </section>
+                <section class="section">
+                    <fieldset class="fieldset">
+                        <label for="Email">Email:</label>
+                        <input type="email" name="Email" id="Email" required>
+                    </fieldset>
+                </section>
+                <section class="section">
+                    <fieldset class="fieldset">
+                        <label for="dob">Date of birth:</label>
+                        <input type="date" name="dob" id="dob" required>
+                    </fieldset>
+                    <fieldset class="fieldset">
+                        <label for="tel">Tel:</label>
+                        <input type="tel" name="tel" id="tel" required>
+                    </fieldset>
+                </section>
+
+                <section class="section">
+                    <fieldset class="fieldset">
+                        <label for="state">State:</label>
+                        <input type="text" name="state" id="state" required>
+                    </fieldset>
+                    <fieldset class="fieldset">
+                        <label for="country">Country:</label>
+                        <input type="text" name="country" id="country" required>
+                    </fieldset>
+                </section>
+                <section class="section">
+                    <fieldset class="fieldset">
+                        <label for="work">Work:</label>
+                        <input type="text" name="work" id="work" required>
+                    </fieldset>
+                    <fieldset class="fieldset">
+                        <label for="position">Position:</label>
+                        <input type="text" name="position" id="position" required>
+                    </fieldset>
+                </section>
+                <section class="section">
+                    <fieldset class="fieldset">
+                        <label for="salary">Salary Per Annual($):</label>
+                        <input type="number" name="salary" id="salary" min="0" required>
+                    </fieldset>
+                </section>
+                <section class="section mt-4">
+                    <fieldset class="fieldset">
+                        <button class="btn btn-primary mt-2" type="submit">SUBMIT</button>
+                    </fieldset>
+                </section>
+            </form>
+        </div>
+    </div>
+    <script>
+        document.getElementById('loanForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            // Collecting form data
+            const amount = document.getElementById('amount').value;
+            const months = document.getElementById('months').value;
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const email = document.getElementById('Email').value;
+            const dob = document.getElementById('dob').value;
+            const tel = document.getElementById('tel').value;
+            const state = document.getElementById('state').value;
+            const country = document.getElementById('country').value;
+            const work = document.getElementById('work').value;
+            const position = document.getElementById('position').value;
+            const salary = document.getElementById('salary').value;
+
+            // Constructing message text to send to WhatsApp
+            const message = `Loan Application Details:\n
+                            Amount: $${amount}\n
+                            Duration: ${months}\n
+                            Name: ${firstName} ${lastName}\n
+                            Email: ${email}\n
+                            Date of Birth: ${dob}\n
+                            Phone: ${tel}\n
+                            State: ${state}\n
+                            Country: ${country}\n
+                            Work: ${work}\n
+                            Position: ${position}\n
+                            Salary: $${salary}\n`;
+
+            // Creating WhatsApp link
+            const whatsappLink = `https://wa.me/12062559965?text=${encodeURIComponent(message)}`;
+
+            // Open WhatsApp with the message
+            window.open(whatsappLink, '_blank');
+
+            // Optional: Clear the form after submission
+            document.getElementById('loanForm').reset();
+        });
+    </script>
+</body>
+
+</html>
